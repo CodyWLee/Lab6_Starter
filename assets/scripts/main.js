@@ -59,11 +59,8 @@ function saveRecipesToStorage(recipes) {
 	// B1. TODO - Complete the functionality as described in this function
 	//            header. It is possible in only a single line, but should
 	//            be no more than a few lines.
-	let recipe_string;
-	for(let i =0;i<recipes.length;i++){
-		recipe_string+=recipes[i];
-		localStorage.setItem("recipes",recipe_string);
-	}
+	
+	localStorage.setItem("recipes",JSON.stringify(recipes));
 }
 
 /**
@@ -93,7 +90,7 @@ function initFormHandler() {
 		
 		main.append(recipe_card)
 		const recipes_array =  getRecipesFromStorage()
-		recipes_array.append(recipeObject)
+		recipes_array.push(recipeObject)
 		saveRecipesToStorage(recipes_array)
 
 		
